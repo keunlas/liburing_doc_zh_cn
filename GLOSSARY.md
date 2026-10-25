@@ -6,6 +6,7 @@
 | 英文 | 中文 | 说明 |
 | --- | --- | --- |
 | asynchronous I/O | 异步 I/O | 不译为“非同步 I/O” |
+| buffer group (buf_group) | 缓冲区组（buf_group） | 指为缓冲区选择注册的组 |
 | completion queue (CQ) | 完成队列（CQ） | 首次出现保留缩写展开 |
 | completion queue entry (CQE) | 完成队列项（CQE） | 可简称“完成事件” |
 | context switch | 上下文切换 | |
