@@ -140,11 +140,12 @@ while IFS= read -r file; do
         fail "$file 尚未填写 source_copyright"
     fi
 
-    # 所有 man 页面都必须保留上游的 NAME 和 SYNOPSIS 两个核心章节。
+    # NAME 是所有页面的核心章节；仅在上游存在 SYNOPSIS 时要求对应译文章节。
     if ! grep -q '^## 名称[[:space:]]*$' "$file"; then
         fail "$file 缺少“## 名称”章节"
     fi
-    if ! grep -q '^## 概要[[:space:]]*$' "$file"; then
+    if grep -q '^\.SH SYNOPSIS[[:space:]]*$' "$source_root/$base" &&
+        ! grep -q '^## 概要[[:space:]]*$' "$file"; then
         fail "$file 缺少“## 概要”章节"
     fi
 
