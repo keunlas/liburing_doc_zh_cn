@@ -30,8 +30,10 @@
 | reap CQEs | 获取并处理 CQE | 避免生硬直译为“收割” |
 | registered buffer | 已注册缓冲区 | |
 | request | 请求 | |
+| resource tag | 资源标签 | 与已注册文件或缓冲区关联的 `__u64` 标识 |
 | short read | 短读 | 指未读取完整请求字节数的读取 |
 | single-shot | 单次触发 | 与 multishot（多轮触发）相对 |
+| sparse registration | 稀疏注册 | 先注册空槽位、之后再填入资源的表 |
 | submission queue (SQ) | 提交队列（SQ） | 首次出现保留缩写展开 |
 | submission queue entry (SQE) | 提交队列项（SQE） | |
 | system call | 系统调用 | |

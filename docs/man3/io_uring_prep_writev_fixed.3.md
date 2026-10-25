@@ -38,7 +38,7 @@ void io_uring_prep_writev_fixed(struct io_uring_sqe *sqe,
 
 `iovecs` 参数指向一个 iovec 结构体数组，这些结构体描述写入缓冲区。所有缓冲区都必须
 属于索引 `buf_index` 处的已注册缓冲区集合，并且该集合已先前通过
-[io_uring_register_buffers(3)](https://github.com/axboe/liburing/blob/236c1525ff1b2ea5870ecada04951eb2d053275e/man/io_uring_register_buffers.3)
+[io_uring_register_buffers(3)](io_uring_register_buffers.3.md)
 注册。
 
 `flags` 参数可以包含任意按请求生效的标志，例如 `RWF_APPEND` 或
@@ -69,4 +69,4 @@ CQE 的 `res` 字段会包含操作结果；成功时为写入的字节数。发
 - [io_uring_prep_writev2(3)](io_uring_prep_writev2.3.md)
 - [io_uring_prep_write_fixed(3)](io_uring_prep_write_fixed.3.md)
 - [io_uring_prep_readv_fixed(3)](io_uring_prep_readv_fixed.3.md)
-- [io_uring_register_buffers(3)](https://github.com/axboe/liburing/blob/236c1525ff1b2ea5870ecada04951eb2d053275e/man/io_uring_register_buffers.3)
+- [io_uring_register_buffers(3)](io_uring_register_buffers.3.md)

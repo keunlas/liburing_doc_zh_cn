@@ -41,4 +41,4 @@ int io_uring_unregister_ring_fd(struct io_uring *ring);
 ## 参见
 
 - [io_uring_register_ring_fd(3)](io_uring_register_ring_fd.3.md)
-- [io_uring_register_files(3)](https://github.com/axboe/liburing/blob/236c1525ff1b2ea5870ecada04951eb2d053275e/man/io_uring_register_files.3)
+- [io_uring_register_files(3)](io_uring_register_files.3.md)

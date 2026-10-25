@@ -38,7 +38,7 @@ void io_uring_prep_write_fixed(struct io_uring_sqe *sqe,
 
 其工作方式与
 [io_uring_prep_write(3)](io_uring_prep_write.3.md) 相同，只是要求使用已通过
-[io_uring_register_buffers(3)](https://github.com/axboe/liburing/blob/236c1525ff1b2ea5870ecada04951eb2d053275e/man/io_uring_register_buffers.3)
+[io_uring_register_buffers(3)](io_uring_register_buffers.3.md)
 注册的缓冲区。`buf` 和 `nbytes` 参数必须位于先前注册的缓冲区中由 `buf_index` 指定
 的区域内。缓冲区无需与已注册缓冲区的起始位置对齐。
 
@@ -62,4 +62,4 @@ CQE 的 `res` 字段会包含操作结果。可能值的详情请参见相关手
 ## 参见
 
 - [io_uring_prep_write(3)](io_uring_prep_write.3.md)
-- [io_uring_register_buffers(3)](https://github.com/axboe/liburing/blob/236c1525ff1b2ea5870ecada04951eb2d053275e/man/io_uring_register_buffers.3)
+- [io_uring_register_buffers(3)](io_uring_register_buffers.3.md)

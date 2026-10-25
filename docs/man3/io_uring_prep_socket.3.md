@@ -61,11 +61,11 @@ void io_uring_prep_socket_direct_alloc(struct io_uring_sqe *sqe,
 槽位。
 
 如果使用直接变体，应用必须首先通过
-[io_uring_register_files(3)](https://github.com/axboe/liburing/blob/236c1525ff1b2ea5870ecada04951eb2d053275e/man/io_uring_register_files.3)
+[io_uring_register_files(3)](io_uring_register_files.3.md)
 注册一个适当大小的文件表。注册后，直接套接字请求可以使用该表中的任意项，只要其处于
 已注册表的范围内即可。如果指定项中已经包含文件，该文件首先会从表中移除并关闭。这与
 使用
-[io_uring_register_files_update(3)](https://github.com/axboe/liburing/blob/236c1525ff1b2ea5870ecada04951eb2d053275e/man/io_uring_register_files.3)
+[io_uring_register_files_update(3)](io_uring_register_files.3.md)
 更新已有文件的行为一致。
 
 对于直接描述符套接字请求，可以将 `file_index` 参数设置为

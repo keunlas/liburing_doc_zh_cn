@@ -57,11 +57,11 @@ void io_uring_prep_openat_direct(struct io_uring_sqe *sqe,
 [io_uring_prep_open(3)](io_uring_prep_openat.3.md) 准备一个 open 请求。
 
 如果使用直接变体，应用必须首先通过
-[io_uring_register_files(3)](https://github.com/axboe/liburing/blob/236c1525ff1b2ea5870ecada04951eb2d053275e/man/io_uring_register_files.3)
+[io_uring_register_files(3)](io_uring_register_files.3.md)
 注册一个适当大小的文件表。注册后，直接打开请求可以使用该表中的任意项，并在
 `file_index` 中指定该项，只要其处于已注册表的范围内即可。如果指定项中已经包含文件，
 该文件首先会从表中移除并关闭。这与使用
-[io_uring_register_files_update(3)](https://github.com/axboe/liburing/blob/236c1525ff1b2ea5870ecada04951eb2d053275e/man/io_uring_register_files.3)
+[io_uring_register_files_update(3)](io_uring_register_files.3.md)
 更新已有文件的行为一致。
 
 如果将 `IORING_FILE_INDEX_ALLOC` 用作直接打开请求的 `file_index`，则 io_uring 将在

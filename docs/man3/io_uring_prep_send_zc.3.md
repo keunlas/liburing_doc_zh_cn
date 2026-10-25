@@ -45,7 +45,7 @@ void io_uring_prep_send_zc_fixed(struct io_uring_sqe *sqe,
 
 [io_uring_prep_send_zc_fixed(3)](io_uring_prep_send_zc.3.md) 的工作方式与
 [io_uring_prep_send_zc(3)](io_uring_prep_send_zc.3.md) 相同，只是要求使用已通过
-[io_uring_register_buffers(3)](https://github.com/axboe/liburing/blob/236c1525ff1b2ea5870ecada04951eb2d053275e/man/io_uring_register_buffers.3)
+[io_uring_register_buffers(3)](io_uring_register_buffers.3.md)
 注册的缓冲区。`buf` 和 `len` 参数必须位于先前注册的缓冲区中由 `buf_index` 指定的
 区域内。缓冲区无需与已注册缓冲区的起始位置对齐。
 

@@ -65,19 +65,19 @@ void io_uring_prep_multishot_accept_direct(struct io_uring_sqe *sqe,
 方式与已注册文件类似。
 
 要使用 accept 直接变体，应用必须首先通过
-[io_uring_register_files(3)](https://github.com/axboe/liburing/blob/236c1525ff1b2ea5870ecada04951eb2d053275e/man/io_uring_register_files.3)
+[io_uring_register_files(3)](io_uring_register_files.3.md)
 或
-[io_uring_register_files_sparse(3)](https://github.com/axboe/liburing/blob/236c1525ff1b2ea5870ecada04951eb2d053275e/man/io_uring_register_files.3)
+[io_uring_register_files_sparse(3)](io_uring_register_files.3.md)
 注册一个所需大小的文件表。注册后，
 [io_uring_prep_accept_direct(3)](io_uring_prep_accept.3.md) 允许通过 `file_index`
 参数专门选择该表中的一个项。如果指定项中已经包含文件，该文件首先会从表中移除并关闭，
 这与使用
-[io_uring_register_files_update(3)](https://github.com/axboe/liburing/blob/236c1525ff1b2ea5870ecada04951eb2d053275e/man/io_uring_register_files.3)
+[io_uring_register_files_update(3)](io_uring_register_files.3.md)
 更新已有文件的行为一致。对于此变体，也可以将 `file_index` 设置为
 `IORING_FILE_INDEX_ALLOC`，此时会动态选择一个未使用的表索引并返回。类似地，
 `io_uring_prep_multishot_accept_direct` 会为接受的每个连接动态选择一个未使用的表索引
 并返回。如果要同时采用特定选择和动态选择两种直接选择形式，请参见
-[io_uring_register_file_alloc_range(3)](https://github.com/axboe/liburing/blob/236c1525ff1b2ea5870ecada04951eb2d053275e/man/io_uring_register_file_alloc_range.3)
+[io_uring_register_file_alloc_range(3)](io_uring_register_file_alloc_range.3.md)
 以设置该表，使动态选择的项与特定请求所针对的范围不同。
 
 请注意，旧内核不会检查 SQE 的 `file_index` 字段；这意味着当内核过旧时，应用不能
@@ -140,8 +140,8 @@ CQE 的 `res` 字段会包含操作结果。
 
 - [io_uring_get_sqe(3)](io_uring_get_sqe.3.md)
 - [io_uring_submit(3)](io_uring_submit.3.md)
-- [io_uring_register_files(3)](https://github.com/axboe/liburing/blob/236c1525ff1b2ea5870ecada04951eb2d053275e/man/io_uring_register_files.3)
-- [io_uring_register_files_sparse(3)](https://github.com/axboe/liburing/blob/236c1525ff1b2ea5870ecada04951eb2d053275e/man/io_uring_register_files.3)
-- [io_uring_register_file_alloc_range(3)](https://github.com/axboe/liburing/blob/236c1525ff1b2ea5870ecada04951eb2d053275e/man/io_uring_register_file_alloc_range.3)
+- [io_uring_register_files(3)](io_uring_register_files.3.md)
+- [io_uring_register_files_sparse(3)](io_uring_register_files.3.md)
+- [io_uring_register_file_alloc_range(3)](io_uring_register_file_alloc_range.3.md)
 - [io_uring_register(2)](https://github.com/axboe/liburing/blob/236c1525ff1b2ea5870ecada04951eb2d053275e/man/io_uring_register.2)
 - [accept4(2)](https://man7.org/linux/man-pages/man2/accept4.2.html)

@@ -71,5 +71,5 @@ void io_uring_sqe_set_flags(struct io_uring_sqe *sqe,
 
 - [io_uring_submit(3)](io_uring_submit.3.md)
 - [io_uring_register(3)](https://github.com/axboe/liburing/blob/236c1525ff1b2ea5870ecada04951eb2d053275e/man/io_uring_register.2)
-- [io_uring_register_buffers(3)](https://github.com/axboe/liburing/blob/236c1525ff1b2ea5870ecada04951eb2d053275e/man/io_uring_register_buffers.3)
+- [io_uring_register_buffers(3)](io_uring_register_buffers.3.md)
 - [io_uring_register_buf_ring(3)](io_uring_register_buf_ring.3.md)

@@ -38,7 +38,7 @@ void io_uring_prep_sendmsg_zc_fixed(struct io_uring_sqe *sqe,
 [sendmsg(2)](https://man7.org/linux/man-pages/man2/sendmsg.2.html) 所述。
 
 `buf_index` 指定要使用的已注册缓冲区集合的索引。`msg` 中的缓冲区必须属于先前通过
-[io_uring_register_buffers(3)](https://github.com/axboe/liburing/blob/236c1525ff1b2ea5870ecada04951eb2d053275e/man/io_uring_register_buffers.3)
+[io_uring_register_buffers(3)](io_uring_register_buffers.3.md)
 注册的已注册缓冲区集合。
 
 零拷贝发送避免将数据从用户空间复制到内核空间，从而提高大块传输的性能。使用固定
@@ -67,5 +67,5 @@ CQE 的 `res` 字段会包含操作结果；成功时为已发送的字节数。
 - [io_uring_prep_sendmsg_zc(3)](io_uring_prep_sendmsg.3.md)
 - [io_uring_prep_sendmsg(3)](io_uring_prep_sendmsg.3.md)
 - [io_uring_prep_send_zc_fixed(3)](io_uring_prep_send_zc.3.md)
-- [io_uring_register_buffers(3)](https://github.com/axboe/liburing/blob/236c1525ff1b2ea5870ecada04951eb2d053275e/man/io_uring_register_buffers.3)
+- [io_uring_register_buffers(3)](io_uring_register_buffers.3.md)
 - [sendmsg(2)](https://man7.org/linux/man-pages/man2/sendmsg.2.html)
