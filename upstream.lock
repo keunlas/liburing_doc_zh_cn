@@ -1,0 +1,8 @@
+# liburing upstream revision pinned for this translation.
+# Keep this file human-readable; scripts/sync-upstream.sh sources it.
+upstream_repo="https://github.com/axboe/liburing.git"
+upstream_ref="master"
+upstream_commit="236c1525ff1b2ea5870ecada04951eb2d053275e"
+upstream_commit_date="2026-10-23"
+upstream_synced_at="2026-10-25"
+
