@@ -7,6 +7,7 @@
 | --- | --- | --- |
 | asynchronous I/O | 异步 I/O | 不译为“非同步 I/O” |
 | buffer group (buf_group) | 缓冲区组（buf_group） | 指为缓冲区选择注册的组 |
+| bundle | 捆绑（bundle） | 指一次请求连续使用多个提供的缓冲区 |
 | completion queue (CQ) | 完成队列（CQ） | 首次出现保留缩写展开 |
 | completion queue entry (CQE) | 完成队列项（CQE） | 可简称“完成事件” |
 | context switch | 上下文切换 | |
@@ -18,6 +19,7 @@
 | kernel | 内核 | |
 | linked requests | 链接请求 | |
 | multishot | 多轮触发 | 不使用“多射” |
+| notification CQE | 通知 CQE | 零拷贝发送中用于报告内存可复用的完成事件 |
 | opcode | 操作码 | |
 | poll / polling | 轮询 | busy-wait 译为“忙等待” |
 | provided buffers | 提供的缓冲区 | |
