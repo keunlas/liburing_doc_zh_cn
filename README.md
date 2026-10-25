@@ -24,7 +24,9 @@ make catalog
 ## 目录结构
 
 ```text
-docs/man/                 中文 Markdown，与上游 man 页面逐项对应
+docs/man2/                第 2 节系统调用中文 Markdown
+docs/man3/                第 3 节库函数中文 Markdown
+docs/man7/                第 7 节概览文档中文 Markdown
 templates/man-page.md     翻译页面模板
 scripts/                  上游同步、目录生成和完整性校验
 TRANSLATION.md            翻译与审校规范
@@ -33,8 +35,16 @@ upstream.lock             锁定版本与来源
 AGENTS.md                 仓库维护约定
 ```
 
+中文文档按 man 节号分类：
+
+| 上游页面 | 中文目录 | 当前数量 |
+| --- | --- | --- |
+| `man/*.2` | `docs/man2/` | 3 |
+| `man/*.3` | `docs/man3/` | 154 |
+| `man/*.7` | `docs/man7/` | 9 |
+
 例如，上游文件 `man/io_uring_get_sqe.3` 对应的中文文件是
-`docs/man/io_uring_get_sqe.3.md`。
+`docs/man3/io_uring_get_sqe.3.md`。
 
 ## 开始翻译
 
@@ -46,7 +56,7 @@ make catalog
 复制模板并填写上游文件哈希：
 
 ```sh
-cp templates/man-page.md docs/man/io_uring_get_sqe.3.md
+cp templates/man-page.md docs/man3/io_uring_get_sqe.3.md
 sha256sum .cache/liburing/236c1525ff1b2ea5870ecada04951eb2d053275e/man/io_uring_get_sqe.3
 ```
 
@@ -69,4 +79,3 @@ make check
 本项目翻译的上游 man 页面采用 `LGPL-2.0-or-later`。每篇译文及其源文件版权信息应
 随文保留，并继续遵守对应页面的许可证。详见 [NOTICE.md](NOTICE.md) 和上游的
 [`man/` 目录](https://github.com/axboe/liburing/tree/master/man)。
-

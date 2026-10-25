@@ -6,7 +6,7 @@ project_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 source "$project_root/upstream.lock"
 
 source_root="$project_root/.cache/liburing/$upstream_commit/man"
-translation_root="$project_root/docs/man"
+translation_root="$project_root/docs"
 errors=0
 checked=0
 
@@ -37,7 +37,7 @@ if [[ ! -d "$source_root" ]]; then
 fi
 
 if [[ ! -d "$translation_root" ]]; then
-    printf '未找到 docs/man，已跳过页面校验。\n'
+    printf '未找到 docs，已跳过页面校验。\n'
     exit 0
 fi
 
@@ -93,6 +93,9 @@ while IFS= read -r file; do
     source_section="${base##*.}"
     [[ "$section" == "$source_section" ]] ||
         fail "$file 的 section 应为 $source_section"
+    actual_directory="$(basename "$(dirname "$file")")"
+    [[ "$actual_directory" == "man$source_section" ]] ||
+        fail "$file 应位于 docs/man$source_section/"
 
     case "$status" in
         draft | reviewed | stale) ;;
@@ -124,7 +127,7 @@ while IFS= read -r file; do
     fi
 
     checked=$((checked + 1))
-done < <(find "$translation_root" -maxdepth 1 -type f -name '*.md' -print | sort)
+done < <(find "$translation_root" -mindepth 2 -maxdepth 2 -type f -name '*.md' -print | sort)
 
 if ((errors > 0)); then
     printf '校验失败：%d 个问题，检查了 %d 个文件。\n' "$errors" "$checked" >&2

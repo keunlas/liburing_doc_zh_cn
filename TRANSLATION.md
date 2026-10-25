@@ -14,9 +14,13 @@
 文件名与上游完全一致，仅在末尾添加 `.md`：
 
 ```text
-man/io_uring_setup.2              -> docs/man/io_uring_setup.2.md
-man/io_uring_provided_buffers.7   -> docs/man/io_uring_provided_buffers.7.md
+man/io_uring_setup.2              -> docs/man2/io_uring_setup.2.md
+man/io_uring_queue_init.3         -> docs/man3/io_uring_queue_init.3.md
+man/io_uring_provided_buffers.7   -> docs/man7/io_uring_provided_buffers.7.md
 ```
+
+目录名 `man<节号>` 必须与源文件扩展名一致。跨节分类由文件扩展名决定，而不是由 API
+名称或主题决定。
 
 正文第一行使用一级标题并保留节号，例如 `# io_uring_setup(2)`。`NAME` 中的命令、
 函数和宏名称保留英文；简短说明翻译为中文。

@@ -31,7 +31,9 @@ https://github.com/axboe/liburing.git
 ## 目录结构
 
 ```text
-docs/man/                 中文 Markdown，文件名与上游 man 页面一一对应
+docs/man2/                第 2 节系统调用中文 Markdown
+docs/man3/                第 3 节库函数中文 Markdown
+docs/man7/                第 7 节概览文档中文 Markdown
 templates/man-page.md     新翻译页面的模板
 scripts/sync-upstream.sh  获取并检出锁定版本的上游源码
 scripts/catalog.sh        输出翻译目录和进度
@@ -47,18 +49,23 @@ upstream.lock             上游仓库、提交和同步日期
 
 1. 先运行 `make sync`，确保 `.cache` 中存在锁定版本的上游 man 页面。
 2. 运行 `make catalog`，从“待翻译”列表中选择规范页面。
-3. 以 `templates/man-page.md` 为起点，在 `docs/man/` 中创建同名 `.md` 文件。例如
-   `man/io_uring_get_sqe.3` 对应 `docs/man/io_uring_get_sqe.3.md`。
+3. 根据上游文件的扩展名选择分类目录，并以 `templates/man-page.md` 为起点创建同名
+   `.md` 文件。例如：
+   - `man/io_uring_setup.2` 对应 `docs/man2/io_uring_setup.2.md`
+   - `man/io_uring_get_sqe.3` 对应 `docs/man3/io_uring_get_sqe.3.md`
+   - `man/io_uring_provided_buffers.7` 对应
+     `docs/man7/io_uring_provided_buffers.7.md`
 4. 完整对照上游原文翻译，不删减限制条件、版本信息、错误说明和交叉引用。
 5. 更新术语表或在译文中遵守既有术语，再运行 `make check`。
 6. 提交前人工复核一次代码块、标识符、返回值、错误码和 `SEE ALSO` 链接。
 
-不要把未完成的机器翻译放入 `docs/man/`。尚未开始或无法准确判断的内容应保持为
+不要把未完成的机器翻译放入任何分类目录。尚未开始或无法准确判断的内容应保持为
 “待翻译”。
 
 ## 页面元数据
 
-每个 `docs/man/*.md` 必须以 YAML front matter 开头，并包含以下字段：
+每个 `docs/man2/*.md`、`docs/man3/*.md` 或 `docs/man7/*.md` 必须以 YAML front
+matter 开头，并包含以下字段：
 
 ```yaml
 ---
@@ -122,6 +129,7 @@ make check
 还要人工确认：
 
 - front matter 中的标题、节号和源路径匹配文件名；
+- 文件位于与其节号一致的 `docs/man<节号>/` 目录；
 - 源哈希对应锁定提交中的文件；
 - 上游版权行和 SPDX 许可证已保留；
 - 所有代码块闭合，语言标记正确；
