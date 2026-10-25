@@ -23,10 +23,12 @@
 | reap CQEs | 获取并处理 CQE | 避免生硬直译为“收割” |
 | registered buffer | 已注册缓冲区 | |
 | request | 请求 | |
+| short read | 短读 | 指未读取完整请求字节数的读取 |
 | submission queue (SQ) | 提交队列（SQ） | 首次出现保留缩写展开 |
 | submission queue entry (SQE) | 提交队列项（SQE） | |
 | system call | 系统调用 | |
 | userspace | 用户空间 | |
+| vectored I/O | 向量 I/O | 指 `readv`/`writev` 风格的 I/O |
 | zero-copy | 零拷贝 | |
 
 ## 保留英文
