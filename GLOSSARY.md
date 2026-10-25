@@ -10,6 +10,7 @@
 | completion queue (CQ) | 完成队列（CQ） | 首次出现保留缩写展开 |
 | completion queue entry (CQE) | 完成队列项（CQE） | 可简称“完成事件” |
 | context switch | 上下文切换 | |
+| direct descriptor | 直接描述符 | io_uring 私有文件描述符 |
 | file descriptor | 文件描述符 | |
 | fixed buffer | 固定缓冲区 | 指通过注册固定下来的缓冲区 |
 | in-flight request | 在途请求 | |
