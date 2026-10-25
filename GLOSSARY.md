@@ -27,6 +27,7 @@
 | registered buffer | 已注册缓冲区 | |
 | request | 请求 | |
 | short read | 短读 | 指未读取完整请求字节数的读取 |
+| single-shot | 单次触发 | 与 multishot（多轮触发）相对 |
 | submission queue (SQ) | 提交队列（SQ） | 首次出现保留缩写展开 |
 | submission queue entry (SQE) | 提交队列项（SQE） | |
 | system call | 系统调用 | |
