@@ -21,7 +21,9 @@
 | multishot | 多轮触发 | 不使用“多射” |
 | notification CQE | 通知 CQE | 零拷贝发送中用于报告内存可复用的完成事件 |
 | opcode | 操作码 | |
+| personality | 身份凭据（personality） | 注册到环中的调用方凭据集合 |
 | poll / polling | 轮询 | busy-wait 译为“忙等待” |
+| probe | 探测（probe） | 查询 io_uring 操作码支持情况的信息 |
 | provided buffers | 提供的缓冲区 | |
 | reap CQEs | 获取并处理 CQE | 避免生硬直译为“收割” |
 | registered buffer | 已注册缓冲区 | |
