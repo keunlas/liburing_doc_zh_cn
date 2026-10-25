@@ -120,11 +120,25 @@ while IFS= read -r file; do
         *) fail "$file 的 translation_status 无效：$status" ;;
     esac
 
-    # 日期采用 YYYY-MM-DD；当前上游 man 页面统一使用 LGPL-2.0-or-later。
+    # 日期采用 YYYY-MM-DD。许可证必须与源页面声明相符：绝大多数页面使用
+    # SPDX LGPL-2.0-or-later；io_uring_submit_and_get_events.3 仅有未标版本的
+    # GNU Free Documentation License 声明，以 LicenseRef-GFDL 保留该事实。
     [[ "$translated_at" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] ||
         fail "$file 的 translated_at 应为 YYYY-MM-DD"
-    [[ "$license" == "LGPL-2.0-or-later" ]] ||
-        fail "$file 的 license 与上游 man 页面声明不一致"
+    case "$license" in
+        LGPL-2.0-or-later)
+            grep -q 'SPDX-License-Identifier: LGPL-2.0-or-later' "$source_root/$base" ||
+                fail "$file 的 license 与上游 man 页面声明不一致"
+        ;;
+        LicenseRef-GFDL)
+            grep -q 'GNU Free' "$source_root/$base" &&
+                grep -q 'Documentation License' "$source_root/$base" ||
+                fail "$file 的 license 与上游 man 页面声明不一致"
+            ;;
+        *)
+            fail "$file 的 license 与上游 man 页面声明不一致"
+            ;;
+    esac
 
     # 哈希必须对应锁定提交中的源文件，防止译文悄然偏离翻译基准。
     if [[ "$source_sha256" == REPLACE_WITH_SOURCE_SHA256 ]]; then
