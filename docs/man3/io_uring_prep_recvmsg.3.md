@@ -98,6 +98,6 @@ CQE 的 `res` 字段会包含操作结果。可能值的详情请参见相关手
 
 - [io_uring_get_sqe(3)](io_uring_get_sqe.3.md)
 - [io_uring_submit(3)](io_uring_submit.3.md)
-- [io_uring_buf_ring_init(3)](https://github.com/axboe/liburing/blob/236c1525ff1b2ea5870ecada04951eb2d053275e/man/io_uring_buf_ring_init.3)
-- [io_uring_buf_ring_add(3)](https://github.com/axboe/liburing/blob/236c1525ff1b2ea5870ecada04951eb2d053275e/man/io_uring_buf_ring_add.3)
+- [io_uring_buf_ring_init(3)](io_uring_buf_ring_init.3.md)
+- [io_uring_buf_ring_add(3)](io_uring_buf_ring_add.3.md)
 - [recvmsg(2)](https://man7.org/linux/man-pages/man2/recvmsg.2.html)
